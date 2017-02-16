@@ -9,11 +9,11 @@
   "keywords": [
     "mean"
   ],
-  "author": "ravi",
+  "author": "monika",
   "license": "ISC",
   "dependencies": {
     "body-parser": "^1.15.2",
-    "express": "^4.14.0",
+    "express": "^4.13.3",
     "mongoose": "^4.7.2"
   }
 }
