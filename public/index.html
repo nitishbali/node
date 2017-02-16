@@ -1,0 +1,89 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<title>Employee data</title>
+		<meta charset="utf-8">
+		<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css">
+		<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.9.1/jquery.min.js"></script>
+		<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/js/bootstrap.js"></script>
+		<script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.4.9/angular.min.js"></script>
+		<script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.4.9/angular-resource.js"></script>
+		<script src="/client/js/homepage.controller.js"></script>
+		<style>
+			th{
+				font-size: 25px;
+				text-align: center;
+				width: 180px;
+			}
+			table{
+				margin-top:50px;
+			}
+			td{
+				text-align: center;
+			}
+		</style>
+	</head>
+	<body ng-app="app">
+		<div class="col-md-12 heading" 
+		style="width:100%; height:90px; background-color: black; 
+		font-family: Courier New, Courier, monospace; color: white; text-align:center;
+		">
+                <h1 style="font-size: 50px; font-weight: 600">Employee Directory</h1>
+        </div>
+		<div ng-controller="indexController" class="container-fluid">
+			
+			<form class="">
+				<table class="table-responsive table-striped col-md-10 col-md-push-1">
+					<tr>
+						<th>Name</th>
+						<th>Email</th>
+						<th>DOB</th>
+						<th>Department</th>
+						<th>Gender</th>
+						<th>Age</th>
+						<th colspan="2">Action</th>
+					</tr>
+					<tr >
+						<td  style="padding: 5px"><input type="text" class="form-control" placeholder="Enter name"
+							ng-model="userObj.name" required></td>
+						<td  style="padding: 5px"><input type="email" name="email"  pattern="[a-z0-9._%+-]+@[a-z0-9.-]+\.[a-z]{2,3}$" title="Please enter valid email." class="form-control" placeholder="Enter email id"
+							ng-model="userObj.email" required></td>
+						<td  style="padding: 5px"><input type="date" class="form-control" ng-model="userObj.dob"
+							ng-change="calculateAge(userObj.dob)" required></td>
+						<td  style="padding: 5px"><input type="text" class="form-control" placeholder="Enter department"
+							ng-model="userObj.dept" required></td>
+						<td  style="padding: 5px">
+							<select class="selectpicker form-control" ng-model="userObj.gender">
+								<option>Male</option>
+								<option>Female</option>
+							</select>
+						</td>
+						<td style="padding: 5px"><input type="text" class="form-control" ng-model="userObj.age" disabled>
+						</td>
+						<td  style="padding: 5px; width:60px">
+							<button class="btn btn-success " ng-if="!showUpdateButton" ng-click="createUser()">ADD</button>
+						</td>
+						<td>
+							<button class="btn btn-primary " ng-if="showUpdateButton" ng-click="updateUser()">UPDATE</button>
+						</td>
+					</tr>
+
+					<tr ng-repeat="user in users">
+						<td>{{user.name}}</td>
+						<td>{{user.email}}</td>
+						<td>{{user.dob| date:'dd:MM:yyyy'}}</td>
+						<td>{{user.dept}}</td>
+						<td>{{user.gender}}</td>
+						<td>{{user.age}}</td>
+						<td style="padding: 5px; width:60px">
+							<button class="btn btn-warning" ng-click="modifyUser(user)">EDIT</button>
+						</td>
+						<td>
+							<button class="btn btn-danger" ng-click="deleteUser(user)">DELETE</button>
+						</td>
+					</tr>
+				</table>
+			</form>
+		</div>
+	</body>
+</html>
