@@ -71,10 +71,10 @@
 					<tr ng-repeat="user in users">
 						<td>{{user.name}}</td>
 						<td>{{user.email}}</td>
-						<td>{{user.dob| date:'dd:MM:yyyy'}}</td>
+						<td>{{user.dob| date:'dd/MM/yyyy'}}</td>
 						<td>{{user.dept}}</td>
 						<td>{{user.gender}}</td>
-						<td>{{user.age}}</td>
+						<td>{{user.age}} yr</td>
 						<td style="padding: 5px; width:60px">
 							<button class="btn btn-warning" ng-click="modifyUser(user)">EDIT</button>
 						</td>
