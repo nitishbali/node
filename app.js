@@ -7,7 +7,10 @@ mongoose.Promise=global.Promise;
 mongoose.connect("mongodb://nitishbali:nitishbali@ds011258.mlab.com:11258/balidb");
 
 var app=express();
-app.use(bodyParser());
+app.use(bodyParser.json());
+app.use(bodyParser.urlencoded({
+  extended: true
+}));
 app.use("/client/js",express.static(__dirname+"/client/controllers"));
 
 app.get("/",function(req,res){
