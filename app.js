@@ -5,7 +5,7 @@ var express= require("express"),
 
 mongoose.Promise=global.Promise;
 // mongoose.connect("mongodb://monika:monika@ds151279.mlab.com:51279/edurekaproject");
-mongoose.connect("mongodb://nitishbali:12174896@mongo@ds011258.mlab.com:11258/balidb");
+mongoose.connect("mongodb://nitishbali:nitishbali@ds011258.mlab.com:11258/balidb");
 
 var app=express();
 app.use(bodyParser());
