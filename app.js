@@ -4,7 +4,6 @@ var express= require("express"),
 	userModelController=require(__dirname+"/server/controllers/userModel.controller.js");
 
 mongoose.Promise=global.Promise;
-// mongoose.connect("mongodb://monika:monika@ds151279.mlab.com:51279/edurekaproject");
 mongoose.connect("mongodb://nitishbali:nitishbali@ds011258.mlab.com:11258/balidb");
 
 var app=express();
